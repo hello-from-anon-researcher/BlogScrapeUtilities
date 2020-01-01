@@ -1,0 +1,59 @@
+ESET:
+  initial_scrape:
+    search_link: 'https://www.welivesecurity.com/?s=android+malware'
+    page_links_xpath: '//section[@id="news-feed"]//h2//a//@href'
+    next_page_xpath: '//a[@class="nextpostslink"]//@href'
+    max_pages_to_scrape: 300
+  blog_scrape:
+    title_xpath: '//h1//text()'
+    date_xpath: '//div[@class="post-meta"]//time//text()'
+    date_format: '%d %b %Y - %I:%M%p'
+    blog_paragraphs_xpath: '//div[@class="content"]//text()'
+    key_words: 'android,malware'
+Malwarebytes:
+  search_link: 'https://blog.malwarebytes.com/?s=android%20malware'
+  max_timeout: 20
+  max_page_limit: 175
+  suitable_page_wait_time: 5
+  page_scrape_config:
+    page_links_xpath: '//h2//a//@href'
+    next_page_xpath: '//p[@id="pbd-alp-load-posts"]//a'
+  blog_scrape:
+    title_xpath: '//h1//text()'
+    date_xpath: '//div[@id="content"]//p//span//text()'
+    date_format: '%B %d, %Y'
+    blog_paragraphs_xpath: '//div[@class="post-content"]//text()'
+    key_words: 'android,malware'
+Sophos:
+  search_link: 'https://nakedsecurity.sophos.com/?s=android+malware'
+  max_timeout: 20
+  max_page_limit: 300
+  suitable_page_wait_time: 5
+  page_scrape_config:
+    page_links_xpath: '//h1[@class="result-title"]//a//@href'
+    next_page_xpath: '//div[@class="load-more"]//a'
+  blog_scrape:
+    title_xpath: '//h1[@class="entry-title"]//text()'
+    date_xpath: '(//time//@datetime)[1]'
+    date_format: '%Y-%m-%d'
+    parse_date_string: 10
+    blog_paragraphs_xpath: '//div[@class="entry-content"]//text()'
+    key_words: 'android,malware'
+KasperkyLab:
+  search_link: 'https://www.kaspersky.com/blog/?s=android+malware'
+  max_timeout: 20
+  max_page_limit: 300
+  suitable_page_wait_time: 5
+  search_action_config:
+    click_search:
+      action: 'click'
+      element_xpath: '//p[@class="gdprButton"]'
+  page_scrape_config:
+    page_links_xpath: '//div[@class="grid-box-content"]//a//@href'
+    next_page_xpath: '//button[@id="load-more-posts"]'
+  blog_scrape:
+    title_xpath: '//h1//text()'
+    date_xpath: '//div[@class="single-post-header"]//span[@class="time"]//@content'
+    date_format: '%Y-%m-%d'
+    blog_paragraphs_xpath: '//div[@class="entry-content post_content"]//text()'
+    key_words: 'android,malware'
